@@ -1,0 +1,20 @@
+<section class="bg-blue-50 pb-10 ">
+    <div class="container mx-auto">
+        <h1 class=" text-center text-6xl text-cyan-700 pt-10">the all porduct </h1>
+        <input [(ngModel)] = "text" id="porductSaerch" type="search" class="border border-green-600 block w-1/2 mx-auto my-10" >
+        <div class="perent mt-10 gap-4 grid sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-5 ">
+            @for (product of allProuduct | paginate: { id: 'foo',
+            itemsPerPage: pageSize,
+            currentPage: p,
+            totalItems: total } | search : text ; track product.id) {
+            <app-card [product]="product"></app-card>
+            }
+        </div>
+        <div class="flex justify-center mt-5">
+            <pagination-controls id="foo" (pageChange)="getProductData($event)">
+            </pagination-controls>
+        </div>
+
+    </div>
+
+</section>

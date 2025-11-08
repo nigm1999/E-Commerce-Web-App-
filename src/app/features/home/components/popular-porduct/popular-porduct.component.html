@@ -1,0 +1,10 @@
+<section class="bg-blue-50 pb-10 ">
+    <div class="container mx-auto">
+        <h1 class=" text-5xl text-cyan-700">the best seller </h1>
+        <div class="perent mt-10 gap-4 grid sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-5 ">
+            @for (product of allProuduct.slice(0,10 ); track product.id) {
+                <app-card [product]="product"></app-card>
+            }
+        </div>
+    </div>
+</section>

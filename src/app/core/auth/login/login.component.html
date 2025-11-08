@@ -1,0 +1,26 @@
+<section class="bg-blue-50">
+    <div class="container mx-auto  shadow-2xl py-16 ">
+        <h1 class="text-center text-amber-800 text-3xl my-5 "> login now </h1>
+
+        <form class="my-5" [formGroup]="formLogin" (ngSubmit)="submit()">
+            <app-input [control]="formLogin.get('email')" [taypInput]=" 'email' " [idInput]="'email'"
+                [labelInput]=" 'email' "></app-input>
+            <app-input [control]="formLogin.get('password')" [idInput]="'password'"
+                [labelInput]=" 'Password' "></app-input>
+
+        </form>
+        <button class="btn mt-5 " (click)="submit()">login
+            @if (isLogin) {
+            <span><i class="fas fa-spinner animate-spin"></i></span>
+            }
+        </button>
+
+        @if (signup == false) {
+        <button class="btn mt-5 " (click)="ruoterTosignup()">signup</button>
+        }
+
+        @if (msgError) {
+        <p class="text-center text-red-950 bg-red-200 mt-3 p-4 text-2xl">{{msgError}}</p>
+        }
+    </div>
+</section>

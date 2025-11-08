@@ -1,0 +1,20 @@
+<div class="card overflow-hidden bg-blue-200 borde border-blue-900 shadow-lg relative rounded-2xl groub/card ">
+
+    <div class="cursor-pointer " [routerLink]="['/details' , product.slug ,product.id]">
+        <div class="card-img ">
+            <img [src]="product.imageCover" class="w-full object-cover rounded-t-2xl" [alt]="product.title" />
+        </div>
+        <div class="card-body px-2 py-4">
+            <h4 class="text-green-500 text-xs">category Name: {{product.category.name}}</h4>
+            <h3 class="font-medium line-clamp-1">name: {{product.title}}</h3>
+            <div class="flex justify-between items-center">
+                <span>{{product.price}} EGP</span>
+                <div class="flex items-center">
+                    <i class="fas fa-star text-yellow-300"></i>
+                    <span class="text-gray-500">{{product.ratingsAverage}}</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <button (click)="addProductItemToCart(product.id)" class="btn rounded-b-2xl ">Add to cart</button>
+</div>

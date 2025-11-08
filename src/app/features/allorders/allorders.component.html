@@ -1,0 +1,36 @@
+<section class="p-10 shadow-2xl  bg-blue-100">
+    <div class="bg-white rounded-lg shadow p-4">
+        <h2 class="text-xl font-semibold mb-4">Orders</h2>
+        <table class="w-full text-left border-collapse">
+            <thead>
+                <tr class="bg-gray-100 text-gray-600 text-sm">
+                    <th class="p-2 border-b">Order ({{orders.length}})</th>
+                    <th class="p-2 border-b">Customer</th>
+                    <th class="p-2 border-b">Date</th>
+                    <th class="p-2 border-b">Total</th>
+                    <th class="p-2 border-b">Status</th>
+                </tr>
+            </thead>
+            <tbody class="text-sm">
+                @for (item of orders ; track $index) {
+
+                <tr class="hover:bg-gray-50">
+                    <td class="p-2 border-b">{{item.id}}</td>
+                    <td class="p-2 border-b">{{item.user.name}}</td>
+                    <td class="p-2 border-b">{{item.createdAt.split("T")[0]}}</td>
+                    <td class="p-2 border-b">${{item.totalOrderPrice}}</td>
+                    <td class="p-2 border-b">
+
+                        @if(item.isPaid){
+                        <span class="px-2 py-1 text-xs rounded bg-yellow-100 text-yellow-800">Pending</span>
+                        }@else if (item.isDelivered) {
+                        <span class="px-2 py-1 text-xs rounded bg-green-200 text-yellow-800">For delivery</span>
+                        }
+                    </td>
+                </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+
+</section>

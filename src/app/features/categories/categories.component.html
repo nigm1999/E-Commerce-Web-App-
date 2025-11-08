@@ -1,0 +1,40 @@
+<div class="bg-gray-50 text-gray-800 min-h-screen font-sans">
+    <!-- Header -->
+    <header class="bg-white shadow-sm sticky top-0 z-10">
+        <div class="max-w-6xl mx-auto px-4 py-4 flex items-center gap-4">
+            <h1 class="text-xl font-semibold">Categories</h1>
+            <input [(ngModel)]="text" id="porductSaerch" type="search"
+                class="border border-green-600 block w-1/2 mx-auto my-10">
+        </div>
+    </header>
+
+    <!-- Main -->
+    <main class="max-w-6xl mx-auto px-4 py-6">
+        <p class="mb-4 text-sm text-gray-600">
+            Showing <span class="font-medium"></span> results
+        </p>
+
+        <section class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+
+            @for (category of categorieslest | searchCt : text ; track category._id) {
+            <article
+                class="bg-white rounded-2xl shadow-sm overflow-hidden group hover:shadow-lg transition-shadow duration-200">
+                <div class="aspect-w-16 aspect-h-9 overflow-hidden">
+                    <img [src]="category.image"
+                        class="w-full h-44 object-cover group-hover:scale-105 transform transition-transform duration-200" />
+                </div>
+                <div class="p-4">
+                    <h3 class="text-base font-semibold truncate" [title]="category.name">{{category.name}}</h3>
+                    <p class="text-xs text-gray-500 mt-1 truncate" [title]="category.slug">{{category.slug}}</p>
+                    <div class="mt-3 flex items-center justify-between text-xs text-gray-500">
+                        <span>{{ formatDate(category.createdAt) }}</span>
+                        <button (click)="copySlug(category.slug)" class="text-indigo-600 text-sm hover:underline">
+                            Copy slug
+                        </button>
+                    </div>
+                </div>
+            </article>
+            }
+        </section>
+    </main>
+</div>

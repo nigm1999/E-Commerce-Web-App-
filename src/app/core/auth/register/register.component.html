@@ -1,0 +1,53 @@
+<section class="bg-blue-50">
+    <div class="container mx-auto  shadow-2xl py-16 ">
+        <h1 class="text-center text-amber-800 text-3xl my-5 "> register now </h1>
+
+        <form class="my-5" [formGroup]="formRegitertion" (ngSubmit)="submit()">
+<app-input 
+[control]="formRegitertion.get('name')"
+[taypInput]=" 'text' "
+[idInput]="'name'"
+[labelInput]=" 'name' "
+>
+</app-input>
+<app-input 
+[control]="formRegitertion.get('email')"
+[taypInput]=" 'email' "
+[idInput]="'email'"
+[labelInput]=" 'email' "
+>
+</app-input><app-input 
+[control]="formRegitertion.get('password')"
+[idInput]="'password'"
+[labelInput]=" 'password' "
+>
+</app-input>
+
+<app-input 
+[control]="formRegitertion.get('rePassword')"
+[idInput]="'rePassword'"
+[labelInput]=" 'rePassword' "
+>
+</app-input>
+
+<app-input 
+[control]="formRegitertion.get('phone')"
+[taypInput]=" 'tel' "
+[idInput]="'phone'"
+[labelInput]=" 'phone' "
+>
+</app-input>
+
+        </form>
+
+
+        <button class="btn mt-5 " (click)="submit()">Register
+            @if (isLogin) {
+            <span><i class="fas fa-spinner animate-spin"></i></span>
+            }
+        </button>
+        @if (msgError) {
+        <p class="text-center text-red-950 bg-red-200 mt-3 p-4 text-2xl">{{msgError}}</p>
+        }
+    </div>
+</section>

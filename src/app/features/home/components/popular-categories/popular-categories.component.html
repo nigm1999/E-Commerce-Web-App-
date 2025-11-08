@@ -1,0 +1,18 @@
+<section class="bg-blue-50 pt-16 ">
+    <div class="container mx-auto ">
+        <h1 class="text-5xl text-cyan-700 pb-10"> poplur categories </h1>
+        <owl-carousel-o [options]="categoriesOptions">
+
+            @for (category of categorieslest; track category._id) {
+            <ng-template carouselSlide [id]="category._id">
+                <div class="border-2 border-blue-200  rounded py-2">
+                    <img [src]="category.image" class="w-full h-[250px]"  [alt]="category.name">
+                    <h3 class="mt-2 bg-blue-300 text-center text-2xl ">{{category.name}}</h3>
+                </div>
+
+            </ng-template>
+            }
+
+        </owl-carousel-o>
+    </div>
+</section>

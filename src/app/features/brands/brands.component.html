@@ -1,0 +1,20 @@
+<div class="bg-gray-50 py-10">
+    <div class="max-w-7xl mx-auto px-4">
+        <!-- Title -->
+        <h2 class="text-2xl font-bold text-gray-800 mb-8 text-center">
+            Brands We Work With
+        </h2>
+
+        <!-- Grid -->
+        <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-6">
+            <!-- Brand card -->
+            @for (brand of brands; track brand._id) {
+            <div (click)="getOneBrands(brand._id)"
+            
+                class="bg-white rounded-xl shadow-sm p-4 flex items-center justify-center hover:shadow-md transition cursor-pointer ">
+                <img [src]="brand.image" [alt]="brand.name" class="max-h-12 object-contain" />
+            </div>
+            }
+        </div>
+    </div>
+</div>
