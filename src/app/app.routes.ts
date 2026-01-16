@@ -16,7 +16,7 @@ import { tologinGuard } from './core/guards/tologin-guard';
 import { AllordersComponent } from './features/allorders/allorders.component';
 
 export const routes: Routes = [
-    {path:'' ,redirectTo:'home',pathMatch:'full'},
+    // {path:'' ,redirectTo:'home',pathMatch:'full'},
     {path:'',component:AuthLayoutComponent, canActivate:[tologinGuard], children:[
         {path:'login', component:LoginComponent, title:'login'},
         {path:'register', component:RegisterComponent, title:'registerion'}
@@ -30,6 +30,6 @@ export const routes: Routes = [
         {path:'brands',component:BrandsComponent, title:'brands'},
         {path:'checkout/:id',component:CheckoutComponent, title:'checkout'},
         {path:'details/:slug/:id',component:DetailsComponent, title:'details'},
-    ]}, 
+    ]},
     {path:'**', component:NotfoundComponent, title:'404'},
 ]
